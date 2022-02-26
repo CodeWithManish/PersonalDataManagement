@@ -14,6 +14,7 @@ namespace PersonalDataManagement
             Console.WriteLine("Welcome to Personal Data Management\n");
             List<PersonDetail> listPersonInCity = new List<PersonDetail>();
             AddRecords(listPersonInCity);
+            Retriving_TwoRecord_ForAgeIsLessThanSixty(listPersonInCity);
             Console.ReadLine();
         }
         private static void AddRecords(List<PersonDetail> listPersonInCity)
@@ -32,8 +33,17 @@ namespace PersonalDataManagement
             {
                 Console.WriteLine(item.SSN + "\t" + item.Name + "\t" + item.Address + "\t " + item.Age);
             }
-
+            Console.WriteLine("\n===============================================\n");
         }
 
+        private static void Retriving_TwoRecord_ForAgeIsLessThanSixty(List<PersonDetail> listPersonInCity)
+        {
+            var result = listPersonInCity.FindAll(e => e.Age < 60).Take(2).ToList();
+            foreach (PersonDetail personDetail in result)
+            {
+                Console.WriteLine(personDetail.Name + "\t " + personDetail.Address + "\t " + personDetail.Age);
+            }
+          
+        }
     }
 }
