@@ -18,6 +18,7 @@ namespace PersonalDataManagement
             CheckingForTeenagerPerson(listPersonInCity);
             AllPersonAverageAge(listPersonInCity);
             CheckNameExistOrNot(listPersonInCity);
+            SkipRecordAgeLessThanSixty(listPersonInCity);
             Console.ReadLine();
         }
         private static void AddRecords(List<PersonDetail> listPersonInCity)
@@ -80,6 +81,18 @@ namespace PersonalDataManagement
             {
                 Console.WriteLine("No, this name does not exist in our List");
 
+            }
+            Console.WriteLine("\n===============================================\n");
+        }
+
+        private static void SkipRecordAgeLessThanSixty(List<PersonDetail> listPersonInCity)
+        {
+            Console.WriteLine("Skip record from the list for age is less than 60 year");
+
+            foreach (PersonDetail person in listPersonInCity.SkipWhile(e => e.Age < 60))
+            {
+
+                Console.WriteLine(person.Name + "\t " + person.Age);
             }
         }
     }
