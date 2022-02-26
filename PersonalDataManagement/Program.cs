@@ -16,6 +16,7 @@ namespace PersonalDataManagement
             AddRecords(listPersonInCity);
             Retriving_TwoRecord_ForAgeIsLessThanSixty(listPersonInCity);
             CheckingForTeenagerPerson(listPersonInCity);
+            AllPersonAverageAge(listPersonInCity);
             Console.ReadLine();
         }
         private static void AddRecords(List<PersonDetail> listPersonInCity)
@@ -57,7 +58,14 @@ namespace PersonalDataManagement
             {
                 Console.WriteLine("No, we do not have teen-Agers in the list");
             }
-           
+            Console.WriteLine("\n===============================================\n");
+        }
+
+        private static void AllPersonAverageAge(List<PersonDetail> listPersonInCity)
+        {
+            double avgAge = listPersonInCity.Average(e => e.Age);
+            Console.WriteLine("The average of all the person's age is: " + avgAge);
+
         }
     }
 }
